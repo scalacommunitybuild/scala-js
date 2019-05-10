@@ -61,7 +61,7 @@ object ExternalCompile {
             IO.delete(classesDirectory)
           IO.createDirectory(classesDirectory)
 
-          val sourcesArgs = sources.map(_.getAbsolutePath()).toList
+          val sourcesArgs = sources.map(_.getAbsolutePath()).toList.sorted // sorted: https://github.com/scala/bug/issues/11525
 
           /* run.run() below in doCompileJS() will emit a call to its
            * logger.info("Running scala.tools.nsc.scalajs.Main [...]")
